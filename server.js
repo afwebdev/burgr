@@ -15,7 +15,7 @@ app.engine("handlebars", exphs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`);
+  console.log(`App listening on ports ${PORT}`);
 });
 
 //ROUTES
