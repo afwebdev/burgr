@@ -1,8 +1,5 @@
-.input {
-  width: 100%;
-  border: 1px solid black;
-}
 #burgerInput {
-  width: 100%;
+  border: 1px solid black;
+  width: 50%;
   padding-left: 1em;
 }

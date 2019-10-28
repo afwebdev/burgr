@@ -20,5 +20,9 @@ app.listen(PORT, () => {
 
 //ROUTES
 
+app.get("/", (err, resp) => {
+  resp.render("mainPage", { layout: "main" });
+});
+
 //Burgers Router
-app.use("/", require("./controllers/burgers_controller"));
+app.use("/api/burger", require("./controllers/burgers_controller"));

@@ -9,29 +9,25 @@ module.exports = {
   insertOne: function(burger, callback) {
     if (!burger) {
       return;
+    } else {
+      db.query(
+        `INSERT INTO burgers(burger_name)
+			VALUES(?)`,
+        [burger],
+        (err, res) => {
+          callback(res);
+        }
+      );
     }
-    db.query(
-      `INSERT INTO burgers(burger_name)
-			VALUES("${burger}")`,
-      (err, res) => {
-        callback(res);
-      }
-    );
   },
 
-  updateOne: function(burger, callback) {
-    const { id, burger_name, devoured } = burger;
-    console.log(id, burger_name, devoured);
+  updateOne: function(id, callback) {
     if (!id) {
       this.insertOne(burger, callback);
-    }
-    db.query(
-      `UPDATE burgers SET burger_name = ?, 
-			devoured = ? WHERE id = ?`,
-      [burger_name, devoured, id],
-      function(res) {
+    } else {
+      db.query(`UPDATE burgers SET devoured = 1 WHERE id = ?`, [id], function(res) {
         callback(res);
-      }
-    );
+      });
+    }
   }
 };
